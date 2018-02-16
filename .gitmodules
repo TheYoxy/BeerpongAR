@@ -1,0 +1,3 @@
+[submodule "Assets/lib/HololensTemplate"]
+	path = Assets/lib/HololensTemplate
+	url = https://github.com/Upd4ting/HololensTemplate.git
