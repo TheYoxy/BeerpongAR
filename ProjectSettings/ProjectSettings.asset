@@ -146,7 +146,7 @@ PlayerSettings:
       maximumSupportedHeadTracking: 1
     hololens:
       depthFormat: 1
-      depthBufferSharingEnabled: 1
+      depthBufferSharingEnabled: 0
     oculus:
       sharedDepthBuffer: 0
       dashSupport: 0
@@ -575,11 +575,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Coucou
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: D:\Documents\workspace-unity\BeerpongVR\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: TheYoxy - Upd4ting
+  metroCertificateIssuer: TheYoxy - Upd4ting
+  metroCertificateNotAfter: 80780d6df3e5d401
   metroApplicationDescription: Coucou
   wsaImages: {}
   metroTileShortName: 
@@ -672,12 +672,16 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    UNet: 1
+    Build: 0
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
+    UNet: 0
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 3
-  cloudProjectId: 26fa4cfb-1115-41d9-be47-ab6109ec1ea6
-  projectName: Coucou
-  organizationId: theyoxy
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
