@@ -18,4 +18,19 @@ public class GameState : IState {
     public override bool IsFinished() {
         return _finished;
     }
+
+    /// <inheritdoc />
+    public override void OnStart(params object[] args) {
+        _speecher = args[0] as TextToSpeech;
+        _spawner = args[1] as SyncObjectSpawner;
+        
+    }
+
+    public override void OnUpdate() {
+        if (StateRegistrer.Instance.hoster)
+            StateRegistrer.Instance.game.posPlayer1 = Camera.main.transform.position;
+        else {
+            StateRegistrer.Instance.game.posPlayer2 = Camera.main.transform.position;
+        }
+    }
 }
