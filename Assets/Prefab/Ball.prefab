@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1611155544010172}
+  m_RootGameObject: {fileID: 1869840423476820}
   m_IsPrefabParent: 1
---- !u!1 &1611155544010172
+--- !u!1 &1869840423476820
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4241370220138644}
-  - component: {fileID: 33782003660326750}
-  - component: {fileID: 135955143719352172}
-  - component: {fileID: 23857653508419798}
-  - component: {fileID: 54054934844781372}
-  - component: {fileID: 114398780246750390}
+  - component: {fileID: 4749520164870084}
+  - component: {fileID: 33555160749507486}
+  - component: {fileID: 135431922311625392}
+  - component: {fileID: 23102830856571664}
+  - component: {fileID: 54816201103738806}
+  - component: {fileID: 114726950447649510}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4241370220138644
+--- !u!4 &4749520164870084
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611155544010172}
+  m_GameObject: {fileID: 1869840423476820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 1}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23857653508419798
+--- !u!23 &23102830856571664
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611155544010172}
+  m_GameObject: {fileID: 1869840423476820}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ebf0312be076aa244ad8ff7e2d0128e9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,21 +78,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33782003660326750
+--- !u!33 &33555160749507486
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611155544010172}
+  m_GameObject: {fileID: 1869840423476820}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54054934844781372
+--- !u!54 &54816201103738806
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611155544010172}
+  m_GameObject: {fileID: 1869840423476820}
   serializedVersion: 2
-  m_Mass: 0.027
+  m_Mass: 0.0027
   m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -100,27 +100,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114398780246750390
+--- !u!114 &114726950447649510
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611155544010172}
+  m_GameObject: {fileID: 1869840423476820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658f436173526624a842ce397d5fbcc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 7da757180eb571541adc3f59809fb957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BounceDamp: 0.05
-  BuoyancyCentreOffeset: {x: 0, y: 0, z: 0}
-  FloatHeight: 2
-  water: {fileID: 0}
---- !u!135 &135955143719352172
+  density: 28
+  isConcave: 0
+  slicesPerAxis: 2
+  voxelsLimit: 16
+  dragInWater: 750
+  angularDragInWater: 1
+--- !u!135 &135431922311625392
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611155544010172}
+  m_GameObject: {fileID: 1869840423476820}
   m_Material: {fileID: 13400000, guid: a337d84b9182b9e4e859410e32c4b344, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
