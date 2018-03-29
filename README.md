@@ -9,7 +9,7 @@ This game cares about the environment, so you'll have to scan the room to find a
 ## Library used 
 - [The Microsoft Mixed Reality Toolkit](https://github.com/Microsoft/MixedRealityToolkit-Unity)
 - [Hololens Template](https://github.com/Upd4ting/HololensTemplate)
-
+- [Outline-Effect](https://github.com/cakeslice/Outline-Effect)
 > _Everything else in the application has been made by hand._
 
 ## Rules
