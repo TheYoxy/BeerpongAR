@@ -87,9 +87,9 @@ public class ScanningState : IState {
             Vector3 dir;
 
             if (obb.Extents.x >= obb.Extents.z)
-                dir = new Vector3(0, 0, obb.Extents.z);
-            else
                 dir = new Vector3(obb.Extents.x, 0, 0);
+            else
+                dir = new Vector3(0, 0, obb.Extents.z);
 
             dir = go.transform.TransformDirection(dir) / 1.5f; // Local to Global and resize a little
 
