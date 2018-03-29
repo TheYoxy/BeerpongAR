@@ -2,6 +2,7 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
+using System.Collections;
 
 using UnityEngine;
 
@@ -234,6 +235,12 @@ namespace HoloToolkit.Unity.InputModule {
             Debug.Log($"Velocity: {velocity}");
             Debug.Log($"Deltatime: {Time.deltaTime}");
             Debug.Log($"Speed (???): {velocity / Time.deltaTime}");
+
+        }
+
+        private IEnumerator DispawnBall() {
+            yield return new WaitForSeconds(3f);
+            Debug.Log("Je disparais vers d'autres cieuuuuuuuux");
         }
 
         private void Start() {

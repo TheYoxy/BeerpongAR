@@ -201,28 +201,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa81bec0748ac0248a403feb30fb72e6, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &263026808 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1869840423476820, guid: e902007dacd5cd245a24c44112a9b632,
-    type: 2}
-  m_PrefabInternal: {fileID: 1698544855}
---- !u!114 &263026809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 263026808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23101cdf44226794eb7f1efadadcd911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DistanceScale: 1
-  HostTransform: {fileID: 0}
-  IsDraggingEnabled: 1
-  PositionLerpSpeed: 0.2
-  RotationLerpSpeed: 0.2
-  RotationMode: 0
 --- !u!1 &590979923
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,51 +403,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4749520164870084, guid: e902007dacd5cd245a24c44112a9b632, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114726950447649510, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: dragInWater
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 54816201103738806, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114726950447649510, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: isConcave
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54816201103738806, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: m_Drag
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54816201103738806, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114726950447649510, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: angularDragInWater
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114726950447649510, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: density
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 54816201103738806, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.027
-      objectReference: {fileID: 0}
-    - target: {fileID: 54816201103738806, guid: e902007dacd5cd245a24c44112a9b632,
-        type: 2}
-      propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
