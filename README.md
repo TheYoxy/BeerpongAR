@@ -16,7 +16,7 @@ This game cares about the environment, so you'll have to scan the room to find a
 - The player 1 is always the host of the application.
 
 - The player 1 is the player who have to shoot in the blue cup.\
-- The player 2 is the player who have to shoot in the red cup.
+The player 2 is the player who have to shoot in the red cup.
 
 _Incoming_
 
