@@ -20,14 +20,13 @@ public class ConnectServerState : IState {
 
     public override void OnStart(params object[] args) {
         ManualIpConfigUtility = GameObject.Find("ManualIpConfigUtility");
-        ManualIpConfigUtility.GetComponent<ManualIpConfiguration>().IsHoster = false;
         ManualIpConfigUtility.SetActive(true);
         SharingStage.Instance.SharingManagerConnected += ConnectionCreated;
     }
 
     private void ConnectionCreated(object sender, EventArgs e) {
         _finished = true;
-        StateRegistrer.Instance.hoster = ManualIpConfigUtility.GetComponent<ManualIpConfiguration>().IsHoster;
+        StateRegistrer.Instance.hoster = ManualIpConfigUtility.GetComponent<ManualIpConfiguration>().Hoster;
         ManualIpConfigUtility.SetActive(false);
         SharingStage.Instance.SharingManagerConnected -= ConnectionCreated;
     }

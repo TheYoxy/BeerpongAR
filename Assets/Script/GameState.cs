@@ -127,9 +127,13 @@ public class GameState : IState {
 
         // Desactived object
         foreach (string s in StateRegistrer.Instance.game.desactivedObject) {
-            Log.Info("Object path: " + s);
+            Logs.Instance.WriteLogLineWarning("Object path: " + s);
             GameObject.Find(s).SetActive(false);
         }
+
+        Logs.Instance.WriteLogLineWarning("Hierarchy:");
+
+        displayInfo(GameObject.Find("SpawnRoot"));
 
         if (StateRegistrer.Instance.game.posPlayer1.Value != null) {
             textPlayer1.transform.position = StateRegistrer.Instance.game.posPlayer1.Value + new Vector3(0, 0.1f, 0);
@@ -137,5 +141,17 @@ public class GameState : IState {
         if (StateRegistrer.Instance.game.posPlayer2.Value != null) {
             textPlayer2.transform.position = StateRegistrer.Instance.game.posPlayer2.Value + new Vector3(0, 0.1f, 0);
         }
+    }
+
+    private void displayInfo(GameObject o) {
+        bool test = false;
+        foreach (Transform child in o.transform) {
+            displayInfo(child.gameObject);
+            test = true;
+        }
+
+        if (test) return;
+
+        Logs.Instance.WriteLogLineWarning("Fullpath: " + o.transform.GetFullPath());
     }
 }

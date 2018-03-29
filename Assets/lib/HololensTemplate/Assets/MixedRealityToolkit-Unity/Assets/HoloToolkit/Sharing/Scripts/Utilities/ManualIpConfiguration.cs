@@ -19,7 +19,7 @@ namespace HoloToolkit.Sharing.Utilities
         /// </summary>
         private const int MaximumCharacterLength = 15;
 
-        public bool IsHoster { get; set; }
+        public bool Hoster { get; set; }
 
         public string IpAddress { get { return ipAddress.text; } }
 

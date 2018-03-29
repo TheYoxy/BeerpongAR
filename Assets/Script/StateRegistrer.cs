@@ -7,7 +7,7 @@ using UnityEngine;
 public class StateRegistrer : Singleton<StateRegistrer> { // Un peu la main class :)
     public GameObject text;
     public Coroutine crt;
-    public bool hoster;
+    public bool hoster { get; set; }
 
     public SyncGame game;
     public bool lastTurn;

@@ -32,8 +32,7 @@ public class ScanningState : IState {
         _spawner = GameObject.Find("SyncObjectSpawner").GetComponent<SyncObjectSpawner>();
         _recognizer = new GestureRecognizer();
 
-        if (!StateRegistrer.Instance.hoster)
-        {
+        if (!StateRegistrer.Instance.hoster) {
             _speecher.StartSpeaking("Wait that your host configure the game");
             return;
         }
