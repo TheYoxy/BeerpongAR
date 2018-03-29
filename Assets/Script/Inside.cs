@@ -6,11 +6,12 @@ public class Inside : MonoBehaviour
     private const string TAGBALL = "Ball";
     private Coroutine Routine;
 
-    private IEnumerator Oui()
+    private IEnumerator Oui(GameObject parent)
     {
         Debug.Log("Oui()");
         yield return new WaitForSeconds(.5f);
         Debug.Log("TIME");
+        Debug.Log($"Parent: {parent.name}");
         //GetComponent<Rigidbody>().MovePosition(Vector3.up);
     }
 
@@ -23,7 +24,7 @@ public class Inside : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == TAGBALL)
-            this.Routine = StartCoroutine(Oui());
+            this.Routine = StartCoroutine(Oui(transform.parent.gameObject));
     }
 
     private void OnTriggerStay(Collider collider)
