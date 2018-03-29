@@ -2,4 +2,4 @@
 using HoloToolkit.Sharing.SyncModel;
 
 [SyncDataClass]
-public class SyncGobelet : SyncSpawnedObject { }
+public class SyncGobeletsP1 : SyncSpawnedObject {}

@@ -27,9 +27,9 @@ public class StateRegistrer : Singleton<StateRegistrer> { // Un peu la main clas
         if (game == null)
             return;
 
-        if (game.playerTurn != lastTurn)
+        if (game.playerTurn.Value != lastTurn)
             OnTurnChange?.Invoke();
 
-        lastTurn = game.playerTurn;
+        lastTurn = game.playerTurn.Value;
     }
 }

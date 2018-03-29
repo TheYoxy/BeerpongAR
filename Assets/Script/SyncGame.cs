@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 
 using UnityEngine;
+using UnityEngine.Networking;
 
 [SyncDataClass]
 public class SyncGame : SyncSpawnedObject {
-    [SyncData] public bool playerTurn; // FALSE -> 1 / TRUE -> 1
-    [SyncData] public Vector3 posPlayer1;
-    [SyncData] public Vector3 posPlayer2;
+    [SyncData] public SyncBool playerTurn; // FALSE -> 1 / TRUE -> 1
+    [SyncData] public SyncVector3 posPlayer1;
+    [SyncData] public SyncVector3 posPlayer2;
+    [SyncData] public SyncListString desactivedObject;
 }

@@ -2,11 +2,13 @@
 
 using cakeslice;
 
+using HoloToolkit.Sharing;
 using HoloToolkit.Sharing.Tests;
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
 using HoloToolkit.Unity.SpatialMapping;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.XR.WSA.Input;
 
 public class ScanningState : IState {
@@ -18,7 +20,7 @@ public class ScanningState : IState {
     private List<GameObject> _tables;
 
     public override object[] GetParams() {
-        return new object[] {_speecher, _spawner};
+        return new object[] {_speecher, _spawner, _recognizer};
     }
 
     public override bool IsFinished() {
@@ -59,13 +61,45 @@ public class ScanningState : IState {
             if (!_tables.Contains(go))
                 return;
 
-            _speecher.StartSpeaking("Hitted a table objet");
+            //if (SharingStage.Instance.CurrentRoom.GetUserCount() != 2) {
+            //    _speecher.StartSpeaking("Incorrect number of player this game require two players exactly !");
+            //    return;
+            //}
 
-            // Putting outline
+            _speecher.StartSpeaking("Creating game");
+
+            // Destroying outline
             foreach (GameObject got in _tables) {
                 GameObject.Destroy(got.GetComponent<Outline>());
             }
-        } else {
+
+            SyncGame game = new SyncGame();
+            game.playerTurn.Value = false;
+            game.desactivedObject = new SyncListString();
+            _spawner.SpawnSyncObject(game, Vector3.zero, Quaternion.identity);
+            StateRegistrer.Instance.game = game;
+
+            SurfacePlane sp = go.GetComponent<SurfacePlane>();
+            OrientedBoundingBox obb = sp.Plane.Bounds;
+
+            // Which axes is better ?
+            Vector3 dir;
+
+            if (obb.Extents.x >= obb.Extents.z)
+                dir = new Vector3(obb.Extents.x, 0, 0);
+            else
+                dir = new Vector3(0, 0, obb.Extents.z);
+
+            dir = go.transform.TransformDirection(dir) / 1.5f; // Local to Global and resize a little
+
+            SyncGobeletsP1 gobelets = new SyncGobeletsP1();
+            _spawner.SpawnSyncObject(gobelets, obb.Center + dir, Quaternion.LookRotation(-dir));
+            SyncGobeletsP2 gobelets2 = new SyncGobeletsP2();
+            _spawner.SpawnSyncObject(gobelets2, obb.Center - dir, Quaternion.LookRotation(dir));
+
+            finish();
+        }
+        else {
             SpatialMappingManager.Instance.StopObserver();
 
             // Now search if not found begin again
@@ -97,15 +131,10 @@ public class ScanningState : IState {
             Outline outl = go.AddComponent<Outline>();
             outl.color = 0;
         }
-
-        //SyncGame game = new SyncGame();
-        //game.playerTurn = false;
-        //_spawner.SpawnSyncObject(game, Vector3.zero, Quaternion.identity);
     }
 
     private void finish() {
         _recognizer.Tapped -= _recognizer_Tapped;
-        _recognizer.StopCapturingGestures();
         _finished          =  true;
 
         SpatialMappingManager.Instance.DrawVisualMeshes = false;
