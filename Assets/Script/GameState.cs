@@ -36,7 +36,7 @@ public class GameState : IState {
 
         _speecher.StartSpeaking("You are now in the game state");
 
-        _recognizer.Tapped += _recognizer_Tapped;
+        //_recognizer.Tapped += _recognizer_Tapped;
 
         StateRegistrer.Instance.OnTurnChange += Instance_OnTurnChange;
 
@@ -94,26 +94,26 @@ public class GameState : IState {
         _spawner.SpawnSyncObject(ball, pos, Quaternion.identity);
     }
 
-    private void _recognizer_Tapped(TappedEventArgs obj) {
-        GameObject go = GazeManager.Instance.HitObject;
+    //private void _recognizer_Tapped(TappedEventArgs obj) {
+    //    GameObject go = GazeManager.Instance.HitObject;
 
-        if (go == null)
-            return;
+    //    if (go == null)
+    //        return;
 
-        if (StateRegistrer.Instance.hoster == StateRegistrer.Instance.game.playerTurn.Value) return;
+    //    if (StateRegistrer.Instance.hoster == StateRegistrer.Instance.game.playerTurn.Value) return;
 
-        SyncBall ball = (SyncBall)_spawner.SearchSyncObject(typeof(SyncBall));
-        _spawner.DeleteSyncObject(ball);
+    //    SyncBall ball = (SyncBall)_spawner.SearchSyncObject(typeof(SyncBall));
+    //    _spawner.DeleteSyncObject(ball);
 
-        StateRegistrer.Instance.game.desactivedObject.Add(go.transform.parent.GetFullPath());
-        StateRegistrer.Instance.game.playerTurn.Value = !StateRegistrer.Instance.game.playerTurn.Value;
-    }
+    //    StateRegistrer.Instance.game.desactivedObjects.AddObject(new SyncObject(go.transform.parent.GetFullPath()));
+    //    StateRegistrer.Instance.game.playerTurn.Value = !StateRegistrer.Instance.game.playerTurn.Value;
+    //}
 
     public override void OnUpdate() {
         // Desactived object
-        foreach (string s in StateRegistrer.Instance.game.desactivedObject) {
-            Debug.Log("Object path: " + s);
-            GameObject.Find(s).SetActive(false);
+        foreach (SyncObject so in StateRegistrer.Instance.game.desactivedObjects) {
+            Debug.Log("Object path: " + so.FieldName);
+            GameObject.Find(so.FieldName).SetActive(false);
         }
 
         Debug.Log("Hierarchy:");

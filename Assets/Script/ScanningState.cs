@@ -3,6 +3,7 @@
 using cakeslice;
 
 using HoloToolkit.Sharing;
+using HoloToolkit.Sharing.SyncModel;
 using HoloToolkit.Sharing.Tests;
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
@@ -75,7 +76,7 @@ public class ScanningState : IState {
 
             SyncGame game = new SyncGame();
             game.playerTurn.Value = false;
-            game.desactivedObject = new SyncListString();
+            game.desactivedObjects = new SyncArray<SyncObject>();
             _spawner.SpawnSyncObject(game, Vector3.zero, Quaternion.identity);
             StateRegistrer.Instance.game = game;
 
@@ -86,9 +87,9 @@ public class ScanningState : IState {
             Vector3 dir;
 
             if (obb.Extents.x >= obb.Extents.z)
-                dir = new Vector3(obb.Extents.x, 0, 0);
-            else
                 dir = new Vector3(0, 0, obb.Extents.z);
+            else
+                dir = new Vector3(obb.Extents.x, 0, 0);
 
             dir = go.transform.TransformDirection(dir) / 1.5f; // Local to Global and resize a little
 
