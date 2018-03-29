@@ -20,9 +20,6 @@ public class GameState : IState {
     private SyncObjectSpawner _spawner;
     private GestureRecognizer _recognizer;
 
-    private GameObject textPlayer1;
-    private GameObject textPlayer2;
-
     public override object[] GetParams() {
         return new object[] { };
     }
@@ -42,14 +39,6 @@ public class GameState : IState {
         _recognizer.Tapped += _recognizer_Tapped;
 
         StateRegistrer.Instance.OnTurnChange += Instance_OnTurnChange;
-
-        textPlayer1 = GameObject.Instantiate(StateRegistrer.Instance.text);
-        textPlayer1.GetComponent<TextMesh>().text = "Player 1";
-        textPlayer1.AddComponent<Billboard>();
-
-        textPlayer2 = GameObject.Instantiate(StateRegistrer.Instance.text);
-        textPlayer2.GetComponent<TextMesh>().text = "Player 2";
-        textPlayer2.AddComponent<Billboard>();
 
         if (StateRegistrer.Instance.hoster)
             StateRegistrer.Instance.game.playerTurn.Value = true;
@@ -111,6 +100,8 @@ public class GameState : IState {
         if (go == null)
             return;
 
+        if (StateRegistrer.Instance.hoster == StateRegistrer.Instance.game.playerTurn.Value) return;
+
         SyncBall ball = (SyncBall)_spawner.SearchSyncObject(typeof(SyncBall));
         _spawner.DeleteSyncObject(ball);
 
@@ -119,28 +110,15 @@ public class GameState : IState {
     }
 
     public override void OnUpdate() {
-        if (StateRegistrer.Instance.hoster)
-            StateRegistrer.Instance.game.posPlayer1.Value = Camera.main.transform.position;
-        else {
-            StateRegistrer.Instance.game.posPlayer2.Value = Camera.main.transform.position;
-        }
-
         // Desactived object
         foreach (string s in StateRegistrer.Instance.game.desactivedObject) {
-            Logs.Instance.WriteLogLineWarning("Object path: " + s);
+            Debug.Log("Object path: " + s);
             GameObject.Find(s).SetActive(false);
         }
 
-        Logs.Instance.WriteLogLineWarning("Hierarchy:");
+        Debug.Log("Hierarchy:");
 
         displayInfo(GameObject.Find("SpawnRoot"));
-
-        if (StateRegistrer.Instance.game.posPlayer1.Value != null) {
-            textPlayer1.transform.position = StateRegistrer.Instance.game.posPlayer1.Value + new Vector3(0, 0.1f, 0);
-        }
-        if (StateRegistrer.Instance.game.posPlayer2.Value != null) {
-            textPlayer2.transform.position = StateRegistrer.Instance.game.posPlayer2.Value + new Vector3(0, 0.1f, 0);
-        }
     }
 
     private void displayInfo(GameObject o) {
@@ -152,6 +130,6 @@ public class GameState : IState {
 
         if (test) return;
 
-        Logs.Instance.WriteLogLineWarning("Fullpath: " + o.transform.GetFullPath());
+        Debug.Log("Fullpath: " + o.transform.GetFullPath());
     }
 }

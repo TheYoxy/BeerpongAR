@@ -5,7 +5,6 @@ using HoloToolkit.Unity;
 using UnityEngine;
 
 public class StateRegistrer : Singleton<StateRegistrer> { // Un peu la main class :)
-    public GameObject text;
     public Coroutine crt;
     public bool hoster { get; set; }
 
