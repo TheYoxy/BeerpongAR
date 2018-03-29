@@ -21,6 +21,7 @@ The player 2 is the player who have to shoot in the red cup.
 _Incoming_
 
 ## Pictures
+![Miniature](Miniature.png)
 
 _Coming soon._
 
