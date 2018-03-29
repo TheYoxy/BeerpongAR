@@ -235,7 +235,7 @@ namespace HoloToolkit.Unity.InputModule {
             Debug.Log($"Velocity: {velocity}");
             Debug.Log($"Deltatime: {Time.deltaTime}");
             Debug.Log($"Speed (???): {velocity / Time.deltaTime}");
-
+            StartCoroutine(DispawnBall());
         }
 
         private IEnumerator DispawnBall() {
