@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23101cdf44226794eb7f1efadadcd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DistanceScale: 2
+  DistanceScale: 1
   HostTransform: {fileID: 0}
   IsDraggingEnabled: 1
   PositionLerpSpeed: 0.2

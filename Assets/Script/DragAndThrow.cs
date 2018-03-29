@@ -78,7 +78,6 @@ namespace HoloToolkit.Unity.InputModule {
                 eventData.Use(); // Mark the event as used, so it doesn't fall through to other handlers.
 
                 StopDragging();
-                Throw();
             }
         }
 
@@ -192,6 +191,8 @@ namespace HoloToolkit.Unity.InputModule {
             // Store the initial offset between the hand and the object, so that we can consider it when dragging
             gazeAngularOffset = Quaternion.FromToRotation(handDirection, objDirection);
             draggingPosition  = initialDraggingPosition;
+            
+            //TODO Mettre l'object au niveau de la main
 
             StartedDragging.RaiseEvent();
         }
@@ -221,15 +222,15 @@ namespace HoloToolkit.Unity.InputModule {
             currentInputSource   = null;
             currentInputSourceId = 0;
             if (hostRigidbody != null) hostRigidbody.isKinematic = hostRigidbodyWasKinematic;
+            Throw();
             StoppedDragging.RaiseEvent();
         }
 
         private void Throw() {
             Vector3   velocity = HostTransform.position - lastPosition;
-            Rigidbody body     = HostTransform.GetComponent<Rigidbody>();
-            body.isKinematic = false;
-            //body.AddForce(velocity,ForceMode.Impulse);
-            body.velocity = velocity * 5f;
+            hostRigidbody.isKinematic = false;
+
+            hostRigidbody.velocity = velocity * 5f;
             Debug.Log($"Velocity: {velocity}");
             Debug.Log($"Deltatime: {Time.deltaTime}");
             Debug.Log($"Speed (???): {velocity / Time.deltaTime}");
