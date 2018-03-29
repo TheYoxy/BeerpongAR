@@ -37,7 +37,6 @@ public class ScanningState : IState {
         }
 
         _speecher.StartSpeaking("Scanning your environment, please wait");
-        Debug.Log("test");
 
         _recognizer.Tapped += _recognizer_Tapped;
 

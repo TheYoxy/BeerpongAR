@@ -574,8 +574,8 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Coucou
-  metroPackageVersion: 1.0.0.0
-  metroCertificatePath: D:\Documents\workspace-unity\BeerpongVR\Assets\WSATestCertificate.pfx
+  metroPackageVersion: 1.0.1.0
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: TheYoxy - Upd4ting
   metroCertificateIssuer: TheYoxy - Upd4ting
