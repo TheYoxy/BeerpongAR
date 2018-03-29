@@ -225,8 +225,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 40933013}
   outlineCamera: {fileID: 951897134}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 749070329}
-  extraRenderTexture: {fileID: 1738292150}
+  renderTexture: {fileID: 1619086893}
+  extraRenderTexture: {fileID: 2087547455}
 --- !u!1001 &271079981
 Prefab:
   m_ObjectHideFlags: 0
@@ -310,13 +310,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnablePrefabs:
   - DataModelClassName: SyncGobeletsP1
-    Prefab: {fileID: 1764258188688652, guid: fa81bec0748ac0248a403feb30fb72e6, type: 2}
+    Prefab: {fileID: 1450375282406152, guid: 821067f40b4a5b440a99fc43f41cd5ec, type: 2}
   - DataModelClassName: SyncGame
     Prefab: {fileID: 1895022406252804, guid: 55c14ea62329a7045951c56580e56348, type: 2}
   - DataModelClassName: SyncBall
-    Prefab: {fileID: 0}
+    Prefab: {fileID: 1869840423476820, guid: e902007dacd5cd245a24c44112a9b632, type: 2}
   - DataModelClassName: SyncGobeletsP2
-    Prefab: {fileID: 1764258188688652, guid: fa81bec0748ac0248a403feb30fb72e6, type: 2}
+    Prefab: {fileID: 1405571293491698, guid: 30cf2551d5c544f47a0f0cd81234b820, type: 2}
 --- !u!114 &271079985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,37 +395,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!84 &740740449
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 866
-  m_Height: 475
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
---- !u!84 &749070329
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -603,7 +572,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 749070329}
+  m_TargetTexture: {fileID: 1619086893}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -777,7 +746,7 @@ Prefab:
     - target: {fileID: 114870384611565148, guid: 7a47659fc9e17954bbe508c274f59b9d,
         type: 2}
       propertyPath: m_IsOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114507818220099968, guid: 7a47659fc9e17954bbe508c274f59b9d,
         type: 2}
@@ -939,7 +908,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &1738292150
+--- !u!84 &1619086893
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -963,7 +932,7 @@ RenderTexture:
   m_TextureSettings:
     serializedVersion: 2
     m_FilterMode: 1
-    m_Aniso: 1
+    m_Aniso: 0
     m_MipBias: 0
     m_WrapU: 1
     m_WrapV: 1
@@ -1069,6 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f907c38939719e840a54390d8b49673d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 1000013198843976, guid: bfdc7f60d7205c84f82a4806a5352d60, type: 2}
   hoster: 0
   lastTurn: 0
 --- !u!114 &2031230089
@@ -1158,6 +1128,37 @@ Transform:
   m_Father: {fileID: 808574662}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &2087547455
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 866
+  m_Height: 475
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &2110657121
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class ConnectServerState : IState {
 
     public override void OnStart(params object[] args) {
         ManualIpConfigUtility = GameObject.Find("ManualIpConfigUtility");
+        ManualIpConfigUtility.GetComponent<ManualIpConfiguration>().IsHoster = false;
         ManualIpConfigUtility.SetActive(true);
         SharingStage.Instance.SharingManagerConnected += ConnectionCreated;
     }
@@ -27,6 +28,7 @@ public class ConnectServerState : IState {
     private void ConnectionCreated(object sender, EventArgs e) {
         _finished = true;
         StateRegistrer.Instance.hoster = ManualIpConfigUtility.GetComponent<ManualIpConfiguration>().IsHoster;
+        Debug.Log("Value: " + StateRegistrer.Instance.hoster);
         ManualIpConfigUtility.SetActive(false);
         SharingStage.Instance.SharingManagerConnected -= ConnectionCreated;
     }

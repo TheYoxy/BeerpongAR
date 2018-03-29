@@ -61,10 +61,11 @@ public class ScanningState : IState {
             if (!_tables.Contains(go))
                 return;
 
-            //if (SharingStage.Instance.CurrentRoom.GetUserCount() != 2) {
-            //    _speecher.StartSpeaking("Incorrect number of player this game require two players exactly !");
-            //    return;
-            //}
+            if (SharingStage.Instance.CurrentRoom.GetUserCount() != 2)
+            {
+                _speecher.StartSpeaking("Incorrect number of player this game require two players exactly !");
+                return;
+            }
 
             _speecher.StartSpeaking("Creating game");
 

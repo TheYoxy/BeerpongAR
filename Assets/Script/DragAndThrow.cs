@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using HoloToolkit.Sharing.Tests;
 using System;
 using System.Collections;
 
@@ -84,6 +85,7 @@ namespace HoloToolkit.Unity.InputModule {
 
         public void OnInputDown(InputEventData eventData) {
             if (isDragging) return;
+            if (StateRegistrer.Instance.hoster == StateRegistrer.Instance.game.playerTurn.Value) return;
 
         #if UNITY_2017_2_OR_NEWER
             InteractionSourceInfo sourceKind;
@@ -240,7 +242,12 @@ namespace HoloToolkit.Unity.InputModule {
 
         private IEnumerator DispawnBall() {
             yield return new WaitForSeconds(3f);
-            Debug.Log("Je disparais vers d'autres cieuuuuuuuux");
+
+            SyncObjectSpawner _spawner = GameObject.Find("SyncObjectSpawner").GetComponent<SyncObjectSpawner>();
+            SyncBall ball = (SyncBall)_spawner.SearchSyncObject(typeof(SyncBall));
+            _spawner.DeleteSyncObject(ball);
+
+            StateRegistrer.Instance.game.playerTurn.Value = !StateRegistrer.Instance.game.playerTurn.Value;
         }
 
         private void Start() {

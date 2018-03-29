@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using HoloToolkit.Sharing.Tests;
+using System.Collections;
+
+using HoloToolkit.Unity;
 
 using UnityEngine;
 
@@ -7,11 +10,18 @@ public class Inside : MonoBehaviour {
     private       Coroutine Routine;
 
     private IEnumerator Oui(GameObject gobelet) {
-        Debug.Log("Oui()");
         yield return new WaitForSeconds(.5f);
-        Debug.Log("TIME");
-        Debug.Log($"Parent: {gobelet.name}");
-        //GetComponent<Rigidbody>().MovePosition(Vector3.up);
+
+        if (StateRegistrer.Instance.crt != null)
+            StopCoroutine(StateRegistrer.Instance.crt);
+
+        SyncObjectSpawner _spawner = GameObject.Find("SyncObjectSpawner").GetComponent<SyncObjectSpawner>();
+
+        SyncBall ball = (SyncBall) _spawner.SearchSyncObject(typeof(SyncBall));
+        _spawner.DeleteSyncObject(ball);
+
+        StateRegistrer.Instance.game.desactivedObject.Add(gobelet.transform.GetFullPath());
+        StateRegistrer.Instance.game.playerTurn.Value = !StateRegistrer.Instance.game.playerTurn.Value;
     }
 
     private void Start() { }
