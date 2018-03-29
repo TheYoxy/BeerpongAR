@@ -11,5 +11,5 @@ using UnityEngine;
 [SyncDataClass]
 public class SyncGame : SyncSpawnedObject {
     [SyncData] public SyncBool playerTurn; // FALSE -> 1 / TRUE -> 1
-    [SyncData] public SyncArray<SyncObject> desactivedObjects;
+    [SyncData] public SyncArray<SyncObjectString> desactivedObjects;
 }

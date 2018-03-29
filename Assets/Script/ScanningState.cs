@@ -76,7 +76,6 @@ public class ScanningState : IState {
 
             SyncGame game = new SyncGame();
             game.playerTurn.Value = false;
-            game.desactivedObjects = new SyncArray<SyncObject>();
             _spawner.SpawnSyncObject(game, Vector3.zero, Quaternion.identity);
             StateRegistrer.Instance.game = game;
 

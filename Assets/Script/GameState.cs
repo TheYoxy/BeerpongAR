@@ -111,9 +111,9 @@ public class GameState : IState {
 
     public override void OnUpdate() {
         // Desactived object
-        foreach (SyncObject so in StateRegistrer.Instance.game.desactivedObjects) {
-            Debug.Log("Object path: " + so.FieldName);
-            GameObject.Find(so.FieldName).SetActive(false);
+        foreach (SyncObjectString so in StateRegistrer.Instance.game.desactivedObjects) {
+            Debug.Log("Object path: " + so.fullPath.Value);
+            GameObject.Find(so.fullPath.Value).SetActive(false);
         }
 
         Debug.Log("Hierarchy:");
