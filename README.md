@@ -1,6 +1,7 @@
 # BeerpongVR
 
 Beerpong VR is a small application developed by 2 students, [Upd4ting](https://github.com/Upd4ting) and [TheYoxy](https://github.com/TheYoxy), in only one night.
+
 ## Description
 As the name is saying, it's a small beerpong game into the mixed reality helmet, the [Hololens](https://www.microsoft.com/en-us/hololens).\
 This game cares about the environment, so you'll have to scan the room to find a table where you'll play.
@@ -24,5 +25,13 @@ _Incoming_
 ![Miniature](Miniature.png)
 
 _Coming soon._
+
+## Next features ideas
+
+- Replace cups when there is 6,4,3,2,1 cup(s) left.
+
+![Replace](Beerpong_reracks.png)
+
+> We are open for any idea
 
 > OUI.
