@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 954047d6f22005f41a4c3be87607c79c
+guid: bcf5a18aea16b1d41b747c84181ca558
 timeCreated: 1442349494
 licenseType: Pro
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: Cursor_Cross
     100002: cursor_cross_ring
@@ -100,12 +100,10 @@ ModelImporter:
     7400016: Cursor_Cross_Interaction_From_Hold_NorthSouth
     7400018: Cursor_Cross_Hold_NorthSouth
     9500000: //RootNode
-  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -118,14 +116,12 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Cursor_Cross_Observation_In_NorthSouth
@@ -893,18 +889,13 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
     importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 0
-    preserveHierarchy: 0
-    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -914,7 +905,6 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 4
-    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

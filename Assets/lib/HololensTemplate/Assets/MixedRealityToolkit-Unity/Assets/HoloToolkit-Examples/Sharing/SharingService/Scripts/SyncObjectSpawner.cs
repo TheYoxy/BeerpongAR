@@ -37,20 +37,23 @@ namespace HoloToolkit.Sharing.Tests
             }
         }
 
-        public bool SpawnSyncObject(SyncSpawnedObject o, Vector3 position, Quaternion rotation) {
+        public bool SpawnSyncObject(SyncSpawnedObject o, Vector3 position, Quaternion rotation)
+        {
             if (!spawnManager.Spawn(o, position, rotation, spawnParentTransform.gameObject, o.Name.Value, false))
                 return false;
             return true;
         }
 
-        public SyncSpawnedObject SearchSyncObject(Type type) {
+        public SyncSpawnedObject SearchSyncObject(Type type)
+        {
             foreach (var elt in SharingStage.Instance.Root.InstantiatedPrefabs.GetDataArray())
                 if (elt.GetType() == type)
                     return elt;
             return null;
         }
 
-        public void DeleteSyncObject(GameObject o) {
+        public void DeleteSyncObject(GameObject o)
+        {
             spawnManager.Delete((SyncSpawnedObject)o.GetComponent<DefaultSyncModelAccessor>().SyncModel);
         }
 

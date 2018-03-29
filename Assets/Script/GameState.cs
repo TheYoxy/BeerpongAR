@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.XR.WSA.Input;
 using Assets.Scripts;
 
+using HoloToolkit.Sharing;
 using HoloToolkit.Sharing.SyncModel;
 
 public class GameState : IState {
@@ -126,6 +127,7 @@ public class GameState : IState {
 
         // Desactived object
         foreach (string s in StateRegistrer.Instance.game.desactivedObject) {
+            Log.Info("Object path: " + s);
             GameObject.Find(s).SetActive(false);
         }
 

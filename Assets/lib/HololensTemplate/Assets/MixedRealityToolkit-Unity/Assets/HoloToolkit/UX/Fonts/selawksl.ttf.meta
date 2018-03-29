@@ -1,9 +1,8 @@
 fileFormatVersion: 2
-guid: 25413e89adb70fe46b6aabb60441814e
+guid: 98d9db324dda3a44e93fbf3b7ce9eca9
 timeCreated: 1485994274
 licenseType: Free
 TrueTypeFontImporter:
-  externalObjects: {}
   serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
@@ -19,7 +18,6 @@ TrueTypeFontImporter:
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
-  useLegacyBoundsCalculation: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

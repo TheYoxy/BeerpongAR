@@ -52,7 +52,8 @@ namespace HoloToolkit.Sharing.Utilities
 
         private void Start()
         {
-            if (SharingStage.Instance.connectOnAwake) {
+            if (SharingStage.Instance.connectOnAwake)
+            {
                 StartConnection();
             }
         }
@@ -101,7 +102,8 @@ namespace HoloToolkit.Sharing.Utilities
             SharingStage.Instance.SharingManagerConnected += SharingManagerConnected;
             SharingStage.Instance.SessionsTracker.ServerDisconnected -= SessionTrackerDisconnected;
 
-            if (SharingStage.Instance.ClientRole == ClientRole.Primary) {
+            if (SharingStage.Instance.ClientRole == ClientRole.Primary)
+            {
                 StartCoroutine(AutoConnect());
             }
         }

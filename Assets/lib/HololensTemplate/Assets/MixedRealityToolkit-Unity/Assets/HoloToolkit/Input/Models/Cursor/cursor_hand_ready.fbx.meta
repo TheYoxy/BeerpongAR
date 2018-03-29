@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 3d76e15f4acd7e749a64a9a1501662f7
+guid: 20553dcf305b52a4e84f5e4f56e5afdc
 timeCreated: 1444068346
 licenseType: Pro
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: cursor_cross_root
     100002: //RootNode
@@ -26,17 +26,10 @@ ModelImporter:
     2300000: cursor_sizeNorthSouth_ring_interaction
     3300000: cursor_sizeNorthSouth_ring_interaction
     4300000: cursor_sizeNorthSouth_ring_interaction
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: hand_ready
-    second: {fileID: 2100000, guid: 0dcd226f08fd9124e85a53cb0fdec022, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -49,14 +42,12 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -64,18 +55,13 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
     importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 0
-    preserveHierarchy: 0
-    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -85,7 +71,6 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 4
-    normalCalculationMode: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
