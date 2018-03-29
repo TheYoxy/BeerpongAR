@@ -146,7 +146,7 @@ PlayerSettings:
       maximumSupportedHeadTracking: 1
     hololens:
       depthFormat: 1
-      depthBufferSharingEnabled: 1
+      depthBufferSharingEnabled: 0
     oculus:
       sharedDepthBuffer: 0
       dashSupport: 0
@@ -574,12 +574,12 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Coucou
-  metroPackageVersion: 
-  metroCertificatePath: 
+  metroPackageVersion: 0.1.1.0
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: TheYoxy - Upd4ting
+  metroCertificateIssuer: TheYoxy - Upd4ting
+  metroCertificateNotAfter: 80ae7231f3e5d401
   metroApplicationDescription: Coucou
   wsaImages: {}
   metroTileShortName: 
