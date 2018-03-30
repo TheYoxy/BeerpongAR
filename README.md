@@ -1,6 +1,6 @@
 # BeerpongVR
 
-Beerpong VR is a small application developed by 2 students, [Upd4ting](https://github.com/Upd4ting) and [TheYoxy](https://github.com/TheYoxy), in only one night.
+Beerpong VR is a small application developed by 2 students, [Upd4ting](https://github.com/Upd4ting) and [TheYoxy](https://github.com/TheYoxy). The prototype was made in only one night, because of a challenge between Uptd4tin and TheYoxy.
 
 ## Description
 As the name is saying, it's a small beerpong game into the mixed reality helmet, the [Hololens](https://www.microsoft.com/en-us/hololens).\
