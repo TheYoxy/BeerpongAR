@@ -206,7 +206,10 @@ namespace HoloToolkit.Sharing.Utilities
             SharingStage.Instance.ServerAddress = ipAddress.text;
             SharingStage.Instance.ManagerInit(true);
             AutoJoinSessionAndRoom.Instance.StartConnection();
+
+            #if UNITY_WSA
             ((SharingWorldAnchorManager)SharingWorldAnchorManager.Instance).StartManager();
+            #endif
 
             CheckConnection();
         }
