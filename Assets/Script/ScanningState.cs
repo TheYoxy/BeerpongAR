@@ -90,7 +90,7 @@ public class ScanningState : IState {
             else
                 dir = new Vector3(0, 0, obb.Extents.z);
 
-            dir = go.transform.TransformDirection(dir) / 1.5f; // Local to Global and resize a little
+            dir = dir / 1.5f;
 
             SyncGobeletsP1 gobelets = new SyncGobeletsP1();
             _spawner.SpawnSyncObject(gobelets, obb.Center + dir, Quaternion.LookRotation(-dir));
