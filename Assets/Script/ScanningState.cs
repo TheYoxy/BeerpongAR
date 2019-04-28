@@ -3,22 +3,21 @@
 using cakeslice;
 
 using HoloToolkit.Sharing;
-using HoloToolkit.Sharing.SyncModel;
 using HoloToolkit.Sharing.Tests;
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
 using HoloToolkit.Unity.SpatialMapping;
+
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.XR.WSA.Input;
 
 public class ScanningState : IState {
-    private bool              _finished;
-    private GestureRecognizer _recognizer;
-    private TextToSpeech      _speecher;
-    private SyncObjectSpawner _spawner;
-
-    private List<GameObject> _tables;
+    private bool                      _finished;
+    private GestureRecognizer         _recognizer;
+    private TextToSpeech              _speecher;
+    private SyncObjectSpawner         _spawner;
+    private List<GameObject>          _tables;
+    private SharingWorldAnchorManager _anchor;
 
     public override object[] GetParams() {
         return new object[] {_speecher, _spawner, _recognizer};
@@ -29,8 +28,8 @@ public class ScanningState : IState {
     }
 
     public override void OnStart(params object[] args) {
-        _speecher = GameObject.Find("TextToSpeechManager").GetComponent<TextToSpeech>();
-        _spawner = GameObject.Find("SyncObjectSpawner").GetComponent<SyncObjectSpawner>();
+        _speecher   = GameObject.Find("TextToSpeechManager").GetComponent<TextToSpeech>();
+        _spawner    = GameObject.Find("SyncObjectSpawner").GetComponent<SyncObjectSpawner>();
         _recognizer = new GestureRecognizer();
 
         if (!StateRegistrer.Instance.hoster) {
@@ -50,7 +49,7 @@ public class ScanningState : IState {
     public override void OnUpdate() { // If not the hoster we wait for the game to be created
         if (StateRegistrer.Instance.game == null && !StateRegistrer.Instance.hoster) {
             StateRegistrer.Instance.game = _spawner.SearchSyncObject(typeof(SyncGame)) as SyncGame;
-            _finished = StateRegistrer.Instance.game != null;
+            _finished                    = StateRegistrer.Instance.game != null;
         }
     }
 
@@ -61,8 +60,7 @@ public class ScanningState : IState {
             if (!_tables.Contains(go))
                 return;
 
-            if (SharingStage.Instance.CurrentRoom.GetUserCount() != 2)
-            {
+            if (SharingStage.Instance.CurrentRoom.GetUserCount() != 2) {
                 _speecher.StartSpeaking("Incorrect number of player this game require two players exactly !");
                 return;
             }
@@ -70,16 +68,14 @@ public class ScanningState : IState {
             _speecher.StartSpeaking("Creating game");
 
             // Destroying outline
-            foreach (GameObject got in _tables) {
-                GameObject.Destroy(got.GetComponent<Outline>());
-            }
+            foreach (GameObject got in _tables) { GameObject.Destroy(got.GetComponent<Outline>()); }
 
             SyncGame game = new SyncGame();
             game.playerTurn.Value = false;
             _spawner.SpawnSyncObject(game, Vector3.zero, Quaternion.identity);
             StateRegistrer.Instance.game = game;
 
-            SurfacePlane sp = go.GetComponent<SurfacePlane>();
+            SurfacePlane        sp  = go.GetComponent<SurfacePlane>();
             OrientedBoundingBox obb = sp.Plane.Bounds;
 
             // Which axes is better ?
@@ -98,8 +94,7 @@ public class ScanningState : IState {
             _spawner.SpawnSyncObject(gobelets2, obb.Center - dir, Quaternion.LookRotation(dir));
 
             finish();
-        }
-        else {
+        } else {
             SpatialMappingManager.Instance.StopObserver();
 
             // Now search if not found begin again
@@ -111,8 +106,7 @@ public class ScanningState : IState {
         }
     }
 
-    private void Instance_MakePlanesComplete(object source, System.EventArgs args)
-    {
+    private void Instance_MakePlanesComplete(object source, System.EventArgs args) {
         SurfaceMeshesToPlanes.Instance.MakePlanesComplete -= Instance_MakePlanesComplete;
 
         _tables = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Table);
