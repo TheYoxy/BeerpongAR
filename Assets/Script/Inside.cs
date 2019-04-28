@@ -21,7 +21,7 @@ public class Inside : MonoBehaviour {
             SyncBall ball = (SyncBall)_spawner.SearchSyncObject(typeof(SyncBall));
             _spawner.DeleteSyncObject(ball);
 
-            StateRegistrer.Instance.game.desactivedObjects.AddObject(new SyncObjectString(gobelet.transform.GetFullPath()));
+            StateRegistrer.Instance.game.desactivedObjects.AddObject(new SyncObjectString(transform.parent.gameObject.transform.GetFullPath()));
             StateRegistrer.Instance.game.playerTurn.Value = !StateRegistrer.Instance.game.playerTurn.Value;
         }
     }
